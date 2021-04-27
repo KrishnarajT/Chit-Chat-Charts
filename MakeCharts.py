@@ -253,57 +253,92 @@ class read:
             statisticsList.append('Maximum number of Minutes spent talking in one day is : ' + str(self.maxTime))
         elif self.timeUnitMostTime == 'H':
             statisticsList.append('Maximum number of Hours spent talking in one day is : ' + str(self.maxTime))
-        progressBar.setValue(70)
-        progressLabel.setText('Generating Statistics Done')
-        time.sleep(1)
+        progressBar.setValue(42)
+        progressLabel.setText('Generating Statistics...')
+        time.sleep(.3)
+        progressLabel.setText('Done...')
+        time.sleep(.3)
         return statisticsList
     
     def make_graphs(self, requiredGraphs, graphWordsList, graphDestPath, progressBar, progressLabel, mainTabs):
+        
+        progressBar.setValue(50)
+        progressLabel.setText('Making Graphs...')
+        time.sleep(.3)
         
         try :
             os.mkdir(graphDestPath + '/Graphs')
         except FileExistsError:
             print('exists, skipping')
+            progressLabel.setText('Graph Folder Already Exists, skipping')
+            time.sleep(.3)
         self.graphDestPath = graphDestPath + '/Graphs/'
         if 'No. of Messages sent Daily' in requiredGraphs:
             self.messages_daily()
+            progressBar.setValue(55)
+            progressLabel.setText('Messages Daily Done...')
+            time.sleep(.3)
         if 'No. of Messages sent Monthly' in requiredGraphs:
             self.messages_monthly()
+            progressBar.setValue(67)
+            progressLabel.setText('Messages Monthly Done...')
+            time.sleep(.3)
         if 'No. of Words sent Daily' in requiredGraphs:
             self.words_daily()
+            progressBar.setValue(69)
+            progressLabel.setText('Words Daily Done...')
+            time.sleep(.5)
         if 'No. of Words sent Monthly' in requiredGraphs:
             self.words_monthly()
+            progressBar.setValue(70)
+            progressLabel.setText('Words Monthly Done...')
+            time.sleep(.3)
         if 'Percentage of Messages' in requiredGraphs:
             self.perc_messages()
+            progressBar.setValue(75)
+            progressLabel.setText('Percentage of Messages Done...')
+            time.sleep(.3)
         if 'Percentage of Words' in requiredGraphs:
             self.perc_words()
+            progressBar.setValue(80)
+            progressLabel.setText('Percentage of Words Done...')
+            time.sleep(.3)
         if 'Time Spent Monthly' in requiredGraphs:
             self.time_spent_monthly()
+            progressBar.setValue(85)
+            progressLabel.setText('Time Spent Monthly Done...')
+            time.sleep(.3)
         if '20 Most Used Words' in requiredGraphs:
             self.top_20_words()
+            progressBar.setValue(90)
+            progressLabel.setText('Most Used Words Done...')
+            time.sleep(.3)
         if 'Time Spent Daily' in requiredGraphs:
             self.time_spent_daily()
+            progressBar.setValue(95)
+            progressLabel.setText('Time Spent Daily Done...')
+            time.sleep(.3)
         if 'Most Active Hours' in requiredGraphs:
             self.active_hours()
+            progressBar.setValue(96)
+            progressLabel.setText('Most Active Hours Done...')
+            time.sleep(.3)
         if 'Length of Each Session' in requiredGraphs:
             self.length_session()
+            progressBar.setValue(97)
+            progressLabel.setText('Length of Each Session Done...')
+            time.sleep(.3)
         if 'Weekly Activity' in requiredGraphs:
             self.time_spent_weekday()
         if graphWordsList != '':
+            progressBar.setValue(99)
+            progressLabel.setText('Special Words also Done...')
+            time.sleep(.3)
             self.particular_words_over_time(graphWordsList)
             
-        
-        time.sleep(1)
-        progressBar.setValue(100)
-        progressLabel.setText('Making Graphs Done')
-        time.sleep(1)
-        progressLabel.setText('Everything Done.')
-        mainTabs.setCurrentIndex(3)
-        
-        
-        
-        
-        
+            progressBar.setValue(100)
+            progressLabel.setText('Yesss! Everything Done Successfully!')
+                
 
 
     def messages_daily(self): 

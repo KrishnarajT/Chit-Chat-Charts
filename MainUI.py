@@ -20,6 +20,8 @@ class Worker(QObject):
         for i in range(len(statistics)):
             labels[i].setText(statistics[i])
         r.make_graphs(requiredGraphs, graphWordsList, graphDestPath, progressBar, progressLabel, mainTabs)
+        progressBar.setValue(100)
+        mainTabs.setCurrentIndex(3)
         self.finished.emit()
 
 class cust_font(QtGui.QFont):
@@ -416,7 +418,8 @@ class Ui_mainWindowDialog(QMainWindow):
         font.setPointSize(25)
         font.setItalic(True)
         self.generatingChartLabel = QtWidgets.QLabel(self.resultsTab)
-        self.generatingChartLabel.setGeometry(QtCore.QRect(260, 120, 501, 51))
+        self.generatingChartLabel.setGeometry(QtCore.QRect(110, 120, 800, 100))
+        self.generatingChartLabel.setWordWrap(True)
         self.generatingChartLabel.setFont(font)
         self.generatingChartLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.generatingChartLabel.setObjectName("generatingChartLabel")
@@ -464,7 +467,7 @@ class Ui_mainWindowDialog(QMainWindow):
         # Label 1 #
         
         self.label_1 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_1.setGeometry(QtCore.QRect(40, 90, 881, 21))
+        self.label_1.setGeometry(QtCore.QRect(40, 90, 881, 28))
         self.label_1.setFont(font)
         self.label_1.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -474,7 +477,7 @@ class Ui_mainWindowDialog(QMainWindow):
         # Label 2 #
         
         self.label_2 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_2.setGeometry(QtCore.QRect(40, 120, 881, 21))
+        self.label_2.setGeometry(QtCore.QRect(40, 120, 881, 28))
         self.label_2.setFont(font)
         self.label_2.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -485,7 +488,7 @@ class Ui_mainWindowDialog(QMainWindow):
         
         
         self.label_3 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_3.setGeometry(QtCore.QRect(40, 150, 881, 21))
+        self.label_3.setGeometry(QtCore.QRect(40, 150, 881, 28))
         self.label_3.setFont(font)
         self.label_3.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -497,7 +500,7 @@ class Ui_mainWindowDialog(QMainWindow):
         
         
         self.label_4 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_4.setGeometry(QtCore.QRect(40, 180, 881, 21))
+        self.label_4.setGeometry(QtCore.QRect(40, 180, 881, 28))
         self.label_4.setFont(font)
         self.label_4.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -508,7 +511,7 @@ class Ui_mainWindowDialog(QMainWindow):
         
         
         self.label_5 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_5.setGeometry(QtCore.QRect(40, 210, 881, 21))
+        self.label_5.setGeometry(QtCore.QRect(40, 210, 881, 28))
         self.label_5.setFont(font)
         self.label_5.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -519,7 +522,7 @@ class Ui_mainWindowDialog(QMainWindow):
         
         
         self.label_6 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_6.setGeometry(QtCore.QRect(40, 240, 881, 21))
+        self.label_6.setGeometry(QtCore.QRect(40, 240, 881, 28))
         self.label_6.setFont(font)
         self.label_6.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -529,7 +532,7 @@ class Ui_mainWindowDialog(QMainWindow):
         # Label 7 #
         
         self.label_7 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_7.setGeometry(QtCore.QRect(40, 270, 881, 21))
+        self.label_7.setGeometry(QtCore.QRect(40, 270, 881, 28))
         self.label_7.setFont(font)
         self.label_7.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -540,7 +543,7 @@ class Ui_mainWindowDialog(QMainWindow):
         
         
         self.label_9 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_9.setGeometry(QtCore.QRect(40, 300, 881, 21))
+        self.label_9.setGeometry(QtCore.QRect(40, 300, 881, 28))
         self.label_9.setFont(font)
         self.label_9.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -551,7 +554,7 @@ class Ui_mainWindowDialog(QMainWindow):
         
         
         self.label_10 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_10.setGeometry(QtCore.QRect(40, 330, 881, 21))
+        self.label_10.setGeometry(QtCore.QRect(40, 330, 881, 28))
         self.label_10.setFont(font)
         self.label_10.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -562,7 +565,7 @@ class Ui_mainWindowDialog(QMainWindow):
         
         
         self.label_11 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_11.setGeometry(QtCore.QRect(40, 360, 881, 21))
+        self.label_11.setGeometry(QtCore.QRect(40, 360, 881, 28))
         self.label_11.setFont(font)
         self.label_11.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -573,7 +576,7 @@ class Ui_mainWindowDialog(QMainWindow):
 
         
         self.label_12 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_12.setGeometry(QtCore.QRect(40, 390, 881, 21))
+        self.label_12.setGeometry(QtCore.QRect(40, 390, 881, 28))
         self.label_12.setFont(font)
         self.label_12.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -584,7 +587,7 @@ class Ui_mainWindowDialog(QMainWindow):
         # Label 13 #
         
         self.label_13 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_13.setGeometry(QtCore.QRect(40, 420, 881, 21))
+        self.label_13.setGeometry(QtCore.QRect(40, 420, 881, 28))
         self.label_13.setFont(font)
         self.label_13.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -594,7 +597,7 @@ class Ui_mainWindowDialog(QMainWindow):
         # Label 14 #
         
         self.label_14 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_14.setGeometry(QtCore.QRect(40, 450, 881, 21))
+        self.label_14.setGeometry(QtCore.QRect(40, 450, 881, 28))
         self.label_14.setFont(font)
         self.label_14.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -604,7 +607,7 @@ class Ui_mainWindowDialog(QMainWindow):
         # Label 15 #
         
         self.label_15 = QtWidgets.QLabel(self.statisticsTab)
-        self.label_15.setGeometry(QtCore.QRect(40, 480, 881, 21))
+        self.label_15.setGeometry(QtCore.QRect(40, 480, 881, 28))
         self.label_15.setFont(font)
         self.label_15.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
@@ -677,7 +680,8 @@ class Ui_mainWindowDialog(QMainWindow):
         font.setPointSize(18)
         font.setItalic(True)
         self.label_27 = QtWidgets.QLabel(self.creditsTab)
-        self.label_27.setGeometry(QtCore.QRect(300, 380, 401, 41))
+        self.label_27.setGeometry(QtCore.QRect(100, 380, 801, 80))
+        self.label_27.setWordWrap(True)
         self.label_27.setFont(font)
         self.label_27.setAlignment(QtCore.Qt.AlignCenter)
         self.label_27.setObjectName("label_27")
@@ -768,13 +772,13 @@ class Ui_mainWindowDialog(QMainWindow):
             _translate("mainWindowDialog", "Preferences"),
         )
         self.generatingChartLabel.setText(
-            _translate("mainWindowDialog", "Generating, please wait...")
+            _translate("mainWindowDialog", "Generating Graphs, This should just take a few seconds...")
         )
         self.progressLabel.setText(_translate("mainWindowDialog", "hang on!"))
         self.tipLabel.setText(
             _translate(
                 "mainWindowDialog",
-                "You can see the general statistics in the next tab once the charts are generated!",
+                "You will see the general statistics in the next tab once the charts are generated!",
             )
         )
         self.mainTabs.setTabText(
@@ -805,7 +809,7 @@ class Ui_mainWindowDialog(QMainWindow):
             )
         )
         self.label_27.setText(
-            _translate("mainWindowDialog", "suggestions.to.kpt@gmail.com")
+            _translate("mainWindowDialog", "suggestions.to.kpt@gmail.com \nor visit https://github.com/KrishnarajT/Chit-Chat-Charts")
         )
         self.label_28.setText(
             _translate(
