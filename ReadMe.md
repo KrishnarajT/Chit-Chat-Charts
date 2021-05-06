@@ -5,7 +5,7 @@ This is a GUI made for making analysis of your Social Media Chats easier. It giv
 ## Installation # to be added
 
 ### _Windows_
-You just install the Latest version from Github, follow the installer and launch the app.
+You just install the Latest version from Github releases, follow the installer and launch the app.
 
 ### _Linux_
 
@@ -16,7 +16,7 @@ You just install the Latest version from Github, follow the installer and launch
 `yay -S chit-chat-charts`
 
 ##### Executable :
-You can download the tar.gz File from github and install accordingly.
+You can download the tar.gz File from github releases and install accordingly.
 
 ## Usage
 
@@ -49,6 +49,7 @@ You can select text files from these apps to analyze.
 3. Add Emoji support
 4. Upload to AUR, debian repos and create linux and windows Executables.
 5. Add a good theme support
+6. Fix some bugs regarding Whatsapp files that causes errors
 
 ## Credits
 I did this with pyQt5, pandas and matplotlib in python. Thanks to the websites that helped me learn pyQt and refer to its documentation. 
