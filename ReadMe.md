@@ -1,3 +1,5 @@
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/chit%20chat%20charts.png)
+
 # _Chit Chat Charts_
 
 This is a GUI made for making analysis of your Social Media Chats easier. It gives statistics about your chat file, things like time spent, most used words, number of messages etc, and then plots this data as a timeline for many available attributes you can choose from. It then stores these graphs in your preferable directory.
