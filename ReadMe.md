@@ -1,4 +1,4 @@
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/chit%20chat%20charts.png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/chit%20chat%20charts2.png)
 
 # _Chit Chat Charts_
 
