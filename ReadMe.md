@@ -67,7 +67,8 @@ I did this with pyQt5, pandas and matplotlib in python. Thanks to the websites t
 
 ## Here is how the GUI of the App looks like
 ![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC.png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(4).png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(3).png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(2).png)
 ![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(1).png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(2).png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(3).png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(4).png)
+
