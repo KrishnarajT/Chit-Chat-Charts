@@ -9,14 +9,6 @@ This is a GUI made for making analysis of your Social Media Chats easier. It giv
 ### _Windows_
 You just install the Latest version from Github releases, follow the installer and launch the app.
 
-### _Linux_
-
-##### Debian :
-`sudo apt-get install chit-chat-charts`
-
-##### Arch : You can get it from the AUR
-`yay -S chit-chat-charts`
-
 ##### Executable :
 You can download the tar.gz File from github releases and install accordingly.
 
