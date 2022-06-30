@@ -1,6 +1,6 @@
 # _Chit Chat Charts_
 
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/.png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/chit%20chat%20charts2.png)
 
 This is a GUI made for making analysis of your Social Media Chats easier. It gives statistics about your chat file, things like time spent, most used words, number of messages etc, and then plots this data as a timeline for many available attributes you can choose from. It then stores these graphs in your preferable directory.
 
@@ -10,12 +10,7 @@ This is a GUI made for making analysis of your Social Media Chats easier. It giv
 You just install the Latest version from Github, follow the installer and launch the app.
 
 ### _Linux_
-
-##### Debian :
-`sudo apt-get install chit-chat-charts`
-
-##### Arch : You can get it from the AUR
-`yay -S chit-chat-charts`
+Same thing, install the linux executable from the latest Release. 
 
 ##### Executable :
 You can download the tar.gz File from github and install accordingly.
