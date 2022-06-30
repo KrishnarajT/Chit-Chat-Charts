@@ -6,7 +6,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import os, time, re
+import os, time, re, json
 from datetime import datetime
 
 class General :
@@ -35,94 +35,170 @@ class General :
 
 class read:
     
-    def make_DataFrames(self, filePath, progressbar, progressLabel):
-
+    def make_DataFrames(self, filePath, progressbar, progressLabel, messaging_app):
+        
         self.words = []
         eachWordMetaData = []
         eachMessageMetaData = []
         people = set()
-        lines = General.read_chat_file(filePath)
-        print(len(lines))
-        # removing the unwanted lines
-        for l in lines[:]:
-            date_regex = re.compile(r"((\d|1[0-2])/[0-2]\d|3[01])/([12]\d{1}[,])")
-            match = date_regex.search(l)
-            if match == None:
-                lines.remove(l)
-            elif 'http' in l:
-                print('removing coz htt there in ', l)
-                lines.remove(l)
-            elif '/' not in l:
-                lines.remove(l)
-            elif '<Media' in l:
-                print('removing coz <med not there in ', l)
-                lines.remove(l)
-            elif '\n\n' in l:
-                print('removing coz slnsln not there in ', l)
-                lines.remove(l)
-        print(len(lines))
-        # splitting the lines into lists that have words
-        for l in lines:
-            self.words.append(l.split())
-
-        # cleaning the date and names, making everything lowercase, removing hyphens
-        for i in self.words:
-            i[0] = i[0].strip(',')
-            i[3] = i[3].strip(':')
-            for j in range(len(i)):
-                i[j] = i[j].lower()
-            i.remove(i[2])
-
-        # removing useless whatsapp info
-        for i in self.words:
-            if i[2] == 'messages':
-                self.words.remove(i)
-
-        # figuring out who the people are by taking the 2 names involved in the first 100 texts
-        for i in self.words[:100]:
-            people.add(i[2])
-        self.person1, self.person2 = people
-
-
-        # Changing their datatypes, now that names are known, so as to make counting easier
-        # as ints are faster to iterate over than strings. Converting the date to its datetime format.
-        for i in self.words:
-            if i[2] == self.person1:
-                i[2] = 1
-            else: i[2] = 2
-
-
-        dateformat = '%m/%d/%y %H:%M'
-        for i in self.words:
-            try:
-                x = datetime.strptime(i[0] + ' ' + i[1], dateformat)
-            except ValueError as err:
-                print(i)
-                print('changed date format')
-                dateformat = '%d/%m/%y %H:%M'
-                break
-
-        for i in self.words:
-            i[0] = datetime.strptime(i[0] + ' ' + i[1], dateformat)    
-            i.remove(i[1])
         
-
-        # Making a list with just the messages and its metadata, just the words and their metadata.
-        for i in self.words:
-            message = ''
-            for j in range(2, len(i)):
-                eachWordMetaData.append([i[1], i[0], i[j]])
-                message += i[j] + ' '
-            eachMessageMetaData.append([i[1], i[0], message.strip(' ')])
-
-        # Making DataFrames for each person for words and messages using the lists made above.
-        self.wordDf = pd.DataFrame(eachWordMetaData, columns = ['Speaker', 'Date', 'Word'])
-        self.wordDf_P1 = self.wordDf[self.wordDf['Speaker'] == 1]
-        self.wordDf_P2 = self.wordDf[self.wordDf['Speaker'] == 2]
-        self.messageDf = pd.DataFrame(eachMessageMetaData, columns = ['Speaker', 'Date', 'Message'])
-        self.messageDf_P1 = self.messageDf[self.messageDf['Speaker'] == 1]
-        self.messageDf_P2 = self.messageDf[self.messageDf['Speaker'] == 2]
+        if messaging_app == 'Whatsapp':
         
+            lines = General.read_chat_file(filePath)
+            print(len(lines))
+            # removing the unwanted lines
+            for l in lines[:]:
+                date_regex = re.compile(r"((\d|1[0-2])/[0-2]\d|3[01])/([12]\d{1}[,])")
+                match = date_regex.search(l)
+                if match == None:
+                    lines.remove(l)
+                elif 'http' in l:
+                    print('removing coz htt there in ', l)
+                    lines.remove(l)
+                elif '/' not in l:
+                    lines.remove(l)
+                elif '<Media' in l:
+                    print('removing coz <med there in ', l)
+                    lines.remove(l)
+                elif '\n\n' in l:
+                    print('removing coz slnsln not there in ', l)
+                    lines.remove(l)
+                elif '\\U' in l:
+                    print('what even is this')
+                    lines.remove(l)
+            print(len(lines))
+            # splitting the lines into lists that have words
+            for l in lines:
+                self.words.append(l.split())
+
+            # removing useless whatsapp info
+            for i in self.words:
+                if i[2] == 'Messages' or i[3] == 'Messages' or i[4] == 'Messages':
+                    self.words.remove(i)
+
+            # cleaning the date and names, making everything lowercase, removing hyphens
+            if '-' in self.words[0][2]: # 24 hour clock, one word name
+                print('You are using 24 Hr clock. ')
+                for i in self.words: 
+                    i[0] = i[0].strip(',')
+                    i[3] = i[3].strip(':')
+                    for j in range(len(i)):
+                        i[j] = i[j].lower()
+                    i.remove(i[2])
+            elif '-' in self.words[0][3]: # 24 hr clock, 2 word name, or 12 hr clock 1 word name
+                print('You are using 12 Hr Clock.')
+                for i in self.words: # 12 hr clock 1 word name
+                    i[0] = i[0].strip(',')
+                    i[4] = i[4].strip(':')
+                    for j in range(len(i)):
+                        i[j] = i[j].lower()
+                    i.remove(i[3])
+                    if i[2] == 'AM':
+                        i.remove(i[2])
+                    else:
+                        if int(i[1].split(':')[0]) != 12:
+                            i[1] = str(int(i[1].split(':')[0]) + 12) + ':' + str(i[1].split(':')[1])
+                        else: 
+                            i[1] = '00' + ':' + str(i[1].split(':')[1])
+                        i.remove(i[2])
+
+            print(self.words[17])
+
+            # figuring out who the people are by taking the 2 names involved in the first 100 texts
+            for i in self.words[:100]:
+                print(i[2])
+                people.add(i[2])
+            print(people)
+            self.person1, self.person2 = people
+
+            
+            # Changing their datatypes, now that names are known, so as to make counting easier
+            # as ints are faster to iterate over than strings. Converting the date to its datetime format.
+            for i in self.words:
+                if i[2] == self.person1:
+                    i[2] = 1
+                else: i[2] = 2
+
+
+            dateformat = '%m/%d/%y %H:%M'
+            for i in self.words:
+                try:
+                    x = datetime.strptime(i[0] + ' ' + i[1], dateformat)
+                except ValueError as err:
+                    print(i)
+                    print('changed date format')
+                    dateformat = '%d/%m/%y %H:%M'
+                    break
+
+            for i in self.words:
+                i[0] = datetime.strptime(i[0] + ' ' + i[1], dateformat)    
+                i.remove(i[1])
+            
+
+            # Making a list with just the messages and its metadata, just the words and their metadata.
+            for i in self.words:
+                message = ''
+                for j in range(2, len(i)):
+                    eachWordMetaData.append([i[1], i[0], i[j]])
+                    message += i[j] + ' '
+                eachMessageMetaData.append([i[1], i[0], message.strip(' ')])
+
+
+            # Making DataFrames for each person for words and messages using the lists made above.
+            self.wordDf = pd.DataFrame(eachWordMetaData, columns = ['Speaker', 'Date', 'Word'])
+            self.wordDf_P1 = self.wordDf[self.wordDf['Speaker'] == 1]
+            self.wordDf_P2 = self.wordDf[self.wordDf['Speaker'] == 2]
+            self.wordDf = pd.DataFrame(eachWordMetaData, columns = ['Speaker', 'Date', 'Word'])
+            self.messageDf = pd.DataFrame(eachMessageMetaData, columns = ['Speaker', 'Date', 'Message'])
+            self.messageDf_P1 = self.messageDf[self.messageDf['Speaker'] == 1]
+            self.messageDf_P2 = self.messageDf[self.messageDf['Speaker'] == 2]
+        
+        elif messaging_app == 'Telegram':
+            print('messages were taken from telegram')
+            
+            # defining Empty Dataframes
+            self.wordDf = pd.DataFrame(columns = ['Speaker', 'Date', 'Word'])
+            self.messageDf = pd.DataFrame(columns = ['Speaker', 'Date', 'Message'])
+            
+            # Reading the File
+            with open(filePath, 'r') as f:
+                data = json.load(f)
+            for _, i in enumerate(data['messages']):
+                if i['type'] == 'message' and type(i['text']) == str:
+                    speaker = i['from']
+                    date = datetime.strptime(i['date'], '%Y-%m-%dT%H:%M:%S')
+                    message = i['text']
+                    for j in message.split(' '):
+                        self.wordDf = self.wordDf.append({'Speaker' : speaker, 'Date' : date, 'Word' : j}, ignore_index=True)
+                    self.messageDf.loc[_] = [speaker, date, message]
+            
+            # Cleaning and Optimizing the DataFrame
+            
+            # Deleting Empty Rows
+            self.wordDf['Word'].replace('', np.nan, inplace=True)
+            self.wordDf.dropna(subset=['Word'], inplace=True)   
+            self.messageDf['Message'].replace('', np.nan, inplace=True)
+            self.messageDf.dropna(subset=['Message'], inplace=True) 
+            
+            # Changing People's names to Numebers so its easier to calculate. 
+            
+            people = set()
+            for i in self.wordDf['Speaker']:
+                people.add(i)
+            
+            self.person1, self.person2 = people
+            self.wordDf['Speaker'].replace(self.person1, 1, inplace=True)
+            self.wordDf['Speaker'].replace(self.person2, 2, inplace=True)
+            self.messageDf['Speaker'].replace(self.person1, 1, inplace=True)
+            self.messageDf['Speaker'].replace(self.person2, 2, inplace=True)
+            
+            
+            # Creating Sub Data Sets
+            self.wordDf_P1 = self.wordDf[self.wordDf['Speaker'] == 1]
+            self.wordDf_P2 = self.wordDf[self.wordDf['Speaker'] == 2]
+            self.messageDf_P1 = self.messageDf[self.messageDf['Speaker'] == 1]
+            self.messageDf_P2 = self.messageDf[self.messageDf['Speaker'] == 2]        
+                        
         print('everything done')
         progressbar.setValue(20)  
         

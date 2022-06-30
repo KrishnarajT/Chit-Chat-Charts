@@ -11,10 +11,10 @@ class Worker(QObject):
     finished = pyqtSignal()
     progress = pyqtSignal(int)
 
-    def run(self, requiredGraphs, graphWordsList, graphDestPath, filePath, progressBar, progressLabel, mainTabs, labels):
+    def run(self, requiredGraphs, graphWordsList, graphDestPath, filePath, progressBar, progressLabel, mainTabs, labels, messaging_app):
         progressBar.setValue(0)
         r = mk.read()
-        r.make_DataFrames(filePath, progressBar, progressLabel)
+        r.make_DataFrames(filePath, progressBar, progressLabel, messaging_app)
         r.calc_statistics(progressBar, progressLabel)
         statistics = r.return_statistics(progressBar, progressLabel)
         for i in range(len(statistics)):
@@ -134,7 +134,7 @@ class Ui_mainWindowDialog(QMainWindow):
         # The execution of the programs in worker class move to a new thread under the same process  
         self.worker.moveToThread(self.thread) 
         # Every thread has a started signal, we connect it to the long running function, so it knows what to execute
-        self.thread.started.connect(lambda : self.worker.run(required_graphs, self.graphWordsList, self.graphsDestPath, self.srcFilePath, self.progressBar, self.progressLabel, self.mainTabs, self.labels)) 
+        self.thread.started.connect(lambda : self.worker.run(required_graphs, self.graphWordsList, self.graphsDestPath, self.srcFilePath, self.progressBar, self.progressLabel, self.mainTabs, self.labels, self.messagingApp)) 
         # Obviously, now connecting the finished signal of the worker Qobject to the thread's quit slot, so it knows
         # when to terminate the newly created thread.
         self.worker.finished.connect(self.thread.quit)

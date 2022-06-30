@@ -1,5 +1,3 @@
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/chit%20chat%20charts2.png)
-
 # _Chit Chat Charts_
 
 This is a GUI made for making analysis of your Social Media Chats easier. It gives statistics about your chat file, things like time spent, most used words, number of messages etc, and then plots this data as a timeline for many available attributes you can choose from. It then stores these graphs in your preferable directory.
@@ -7,10 +5,18 @@ This is a GUI made for making analysis of your Social Media Chats easier. It giv
 ## Installation # to be added
 
 ### _Windows_
-You just install the Latest version from Github releases, follow the installer and launch the app.
+You just install the Latest version from Github, follow the installer and launch the app.
+
+### _Linux_
+
+##### Debian :
+`sudo apt-get install chit-chat-charts`
+
+##### Arch : You can get it from the AUR
+`yay -S chit-chat-charts`
 
 ##### Executable :
-You can download the tar.gz File from github releases and install accordingly.
+You can download the tar.gz File from github and install accordingly.
 
 ## Usage
 
@@ -43,24 +49,6 @@ You can select text files from these apps to analyze.
 3. Add Emoji support
 4. Upload to AUR, debian repos and create linux and windows Executables.
 5. Add a good theme support
-6. Fix some bugs regarding Whatsapp files that causes errors
 
 ## Credits
 I did this with pyQt5, pandas and matplotlib in python. Thanks to the websites that helped me learn pyQt and refer to its documentation. 
-
-## Here are some Graphs that can be generated
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20and%20friend%20Percentage%20of%20Messages%20Sent.png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20and%20friend%20Session%20Times.jpg)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20and%20friend%20Special%20Word%20Usages%20-%201.jpg)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20with%20friend%20Messages%20Sent%20Monthly.jpg)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20with%20friend%20Top%2020%20Words.jpg)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20with%20friend%20Total%20Messages%20Each%20Hour%20All%20Time.jpg)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20with%20friend%20Total%20Time%20spent%20Over%20the%20Week.jpg)
-
-## Here is how the GUI of the App looks like
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC.png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(1).png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(2).png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(3).png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(4).png)
-
