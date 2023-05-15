@@ -1,4 +1,4 @@
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/chit%20chat%20charts2.png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/chit%20chat%20charts2.png)
 
 # _Chit Chat Charts_
 
@@ -49,17 +49,17 @@ You can select text files from these apps to analyze.
 I did this with pyQt5, pandas and matplotlib in python. Thanks to the websites that helped me learn pyQt and refer to its documentation. 
 
 ## Here are some Graphs that can be generated
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20and%20friend%20Percentage%20of%20Messages%20Sent.png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20and%20friend%20Session%20Times.jpg)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20and%20friend%20Special%20Word%20Usages%20-%201.jpg)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20with%20friend%20Messages%20Sent%20Monthly.jpg)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20with%20friend%20Top%2020%20Words.jpg)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20with%20friend%20Total%20Messages%20Each%20Hour%20All%20Time.jpg)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Example/Graphs/krishnaraj%20with%20friend%20Total%20Time%20spent%20Over%20the%20Week.jpg)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Example/Graphs/krishnaraj%20and%20friend%20Percentage%20of%20Messages%20Sent.png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Example/Graphs/krishnaraj%20and%20friend%20Session%20Times.jpg)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Example/Graphs/krishnaraj%20and%20friend%20Special%20Word%20Usages%20-%201.jpg)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Example/Graphs/krishnaraj%20with%20friend%20Messages%20Sent%20Monthly.jpg)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Example/Graphs/krishnaraj%20with%20friend%20Top%2020%20Words.jpg)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Example/Graphs/krishnaraj%20with%20friend%20Total%20Messages%20Each%20Hour%20All%20Time.jpg)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Example/Graphs/krishnaraj%20with%20friend%20Total%20Time%20spent%20Over%20the%20Week.jpg)
 
 ## Here is how the GUI of the App looks like
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC.png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(1).png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(2).png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(3).png)
-![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/master/Screenshots/CCC%20(4).png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Screenshots/CCC.png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Screenshots/CCC%20(1).png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Screenshots/CCC%20(2).png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Screenshots/CCC%20(3).png)
+![](https://github.com/KrishnarajT/Chit-Chat-Charts/blob/main/Screenshots/CCC%20(4).png)
